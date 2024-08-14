@@ -33,9 +33,11 @@ public class ClienteController {
     }
 
     @GetMapping("/find")
-    public Optional<ClienteConVehiculosYModeloYMarcaDTO> findClienteByIdentificacion(@RequestParam String identificacion) {
+    public ResponseEntity<ClienteConVehiculosYModeloYMarcaDTO> findClienteByIdentificacion(@RequestParam String identificacion) {
 
-        return clienteService.findByIdentificacion(identificacion);
+        Optional<ClienteConVehiculosYModeloYMarcaDTO> cliente = clienteService.findByIdentificacion(identificacion);
+        return cliente.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+
     }
 
 
