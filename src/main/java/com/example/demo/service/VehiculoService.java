@@ -23,14 +23,15 @@ public class VehiculoService {
 
     @Transactional
     public Vehiculo saveVehiculo(Vehiculo vehiculo) {
+
         Optional<Vehiculo> existingVehiculoByChasis = vehiculoRepository.findByChasis(vehiculo.getChasis());
         if (existingVehiculoByChasis.isPresent()) {
-            throw new RuntimeException("El chasis ya está registrado.");
+            throw new RuntimeException("El chasis ya se encuentra registrado.");
         }
 
         Optional<Vehiculo> existingVehiculoByPlaca = vehiculoRepository.findByPlaca(vehiculo.getPlaca());
         if (existingVehiculoByPlaca.isPresent()) {
-            throw new RuntimeException("La placa ya está registrada.");
+            throw new RuntimeException("La placa ya se encuentra registrada.");
         }
 
         if (!marcaRepository.existsById(vehiculo.getMarca().getId())) {

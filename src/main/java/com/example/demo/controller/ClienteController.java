@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.ClienteConVehiculosYModeloYMarcaDTO;
 import com.example.demo.entity.Cliente;
 import com.example.demo.entity.Vehiculo;
 import com.example.demo.service.ClienteService;
@@ -7,7 +8,6 @@ import com.example.demo.service.VehiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 
 @RestController
@@ -31,8 +31,8 @@ public class ClienteController {
     }
 
     @GetMapping("/find")
-    public ResponseEntity<Cliente> findCliente(@RequestParam String identificacion) {
-        Optional<Cliente> cliente = clienteService.findByIdentificacion(identificacion);
-        return cliente.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public Optional<ClienteConVehiculosYModeloYMarcaDTO> findClienteWithVehiculosAndModelAndMarca(@RequestParam String identificacion) {
+        return clienteService.findClienteConVehiculosYModeloYMarcaDTO(identificacion);
     }
+
 }

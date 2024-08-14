@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class Vehiculo {
     private String chasis;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
