@@ -1,6 +1,6 @@
 # Proyecto Demo Hispana
 
-Este proyecto es una aplicación de Spring Boot que gestiona información de clientes y sus vehículos, incluyendo detalles de marcas y modelos. La aplicación expone una API REST que permite realizar operaciones CRUD sobre los clientes y sus vehículos.
+Este es una demo de una api rest realizado en Spring Boot que gestiona informacion de clientes y sus vehículos, incluyendo detalles de marcas y modelos.
 
 ## Tecnologías Utilizadas
 
