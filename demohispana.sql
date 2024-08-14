@@ -25,16 +25,16 @@ DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cliente` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `apellidos` varchar(255) DEFAULT NULL,
-  `correo` varchar(255) DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL,
-  `identificacion` varchar(255) NOT NULL,
-  `nombres` varchar(255) DEFAULT NULL,
-  `telefono` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UK147rikqkb68rxqijmxxgpjwot` (`identificacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                           `id` bigint NOT NULL AUTO_INCREMENT,
+                           `apellidos` varchar(255) DEFAULT NULL,
+                           `correo` varchar(255) DEFAULT NULL,
+                           `direccion` varchar(255) DEFAULT NULL,
+                           `identificacion` varchar(255) NOT NULL,
+                           `nombres` varchar(255) DEFAULT NULL,
+                           `telefono` varchar(255) DEFAULT NULL,
+                           PRIMARY KEY (`id`),
+                           UNIQUE KEY `UK147rikqkb68rxqijmxxgpjwot` (`identificacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'granda','xgranda@outlook.com','27 y jj','1111','xavier','1111');
+INSERT INTO `cliente` VALUES (1,'granda perez','xgranda@outlook.com','27 y jj','1111','xavier fernando','1111'),(2,'reinoso tuarez','carlos@gmail.com','34 y la u','2222','carlos jose','3333');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,9 +55,9 @@ DROP TABLE IF EXISTS `marca`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `marca` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                         `id` bigint NOT NULL AUTO_INCREMENT,
+                         `descripcion` varchar(255) DEFAULT NULL,
+                         PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -79,12 +79,12 @@ DROP TABLE IF EXISTS `modelo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `modelo` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(255) DEFAULT NULL,
-  `marca_id` bigint DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKllxq2dldvhxvb5q9csar7vdfy` (`marca_id`),
-  CONSTRAINT `FKllxq2dldvhxvb5q9csar7vdfy` FOREIGN KEY (`marca_id`) REFERENCES `marca` (`id`)
+                          `id` bigint NOT NULL AUTO_INCREMENT,
+                          `descripcion` varchar(255) DEFAULT NULL,
+                          `marca_id` bigint DEFAULT NULL,
+                          PRIMARY KEY (`id`),
+                          KEY `FKllxq2dldvhxvb5q9csar7vdfy` (`marca_id`),
+                          CONSTRAINT `FKllxq2dldvhxvb5q9csar7vdfy` FOREIGN KEY (`marca_id`) REFERENCES `marca` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -106,21 +106,21 @@ DROP TABLE IF EXISTS `vehiculo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vehiculo` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `chasis` varchar(255) NOT NULL,
-  `placa` varchar(255) NOT NULL,
-  `cliente_id` bigint DEFAULT NULL,
-  `marca_id` bigint DEFAULT NULL,
-  `modelo_id` bigint DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UKkmsl47pk4alx2ijmvmebhqiym` (`chasis`),
-  UNIQUE KEY `UKqt70ab7dm6c22avc6b4koit9c` (`placa`),
-  KEY `FK1n4qihkdgr0hfuv13hbltwdn8` (`cliente_id`),
-  KEY `FKkhbi3kqfa08r839lyrv5wemya` (`marca_id`),
-  KEY `FKp9hj7g6ceqe80ix17a435q7o0` (`modelo_id`),
-  CONSTRAINT `FK1n4qihkdgr0hfuv13hbltwdn8` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
-  CONSTRAINT `FKkhbi3kqfa08r839lyrv5wemya` FOREIGN KEY (`marca_id`) REFERENCES `marca` (`id`),
-  CONSTRAINT `FKp9hj7g6ceqe80ix17a435q7o0` FOREIGN KEY (`modelo_id`) REFERENCES `modelo` (`id`)
+                            `id` bigint NOT NULL AUTO_INCREMENT,
+                            `chasis` varchar(255) NOT NULL,
+                            `placa` varchar(255) NOT NULL,
+                            `cliente_id` bigint DEFAULT NULL,
+                            `marca_id` bigint DEFAULT NULL,
+                            `modelo_id` bigint DEFAULT NULL,
+                            PRIMARY KEY (`id`),
+                            UNIQUE KEY `UKkmsl47pk4alx2ijmvmebhqiym` (`chasis`),
+                            UNIQUE KEY `UKqt70ab7dm6c22avc6b4koit9c` (`placa`),
+                            KEY `FK1n4qihkdgr0hfuv13hbltwdn8` (`cliente_id`),
+                            KEY `FKkhbi3kqfa08r839lyrv5wemya` (`marca_id`),
+                            KEY `FKp9hj7g6ceqe80ix17a435q7o0` (`modelo_id`),
+                            CONSTRAINT `FK1n4qihkdgr0hfuv13hbltwdn8` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
+                            CONSTRAINT `FKkhbi3kqfa08r839lyrv5wemya` FOREIGN KEY (`marca_id`) REFERENCES `marca` (`id`),
+                            CONSTRAINT `FKp9hj7g6ceqe80ix17a435q7o0` FOREIGN KEY (`modelo_id`) REFERENCES `modelo` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -143,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-12 14:17:23
+-- Dump completed on 2024-08-14 11:54:03

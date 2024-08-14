@@ -31,8 +31,8 @@ public class ClienteController {
     }
 
     @GetMapping("/find")
-    public Optional<ClienteConVehiculosYModeloYMarcaDTO> findClienteWithVehiculosAndModelAndMarca(@RequestParam String identificacion) {
-        return clienteService.findClienteConVehiculosYModeloYMarcaDTO(identificacion);
+    public Optional<ClienteConVehiculosYModeloYMarcaDTO> findClienteByIdentificacion(@RequestParam String identificacion) {
+        return clienteService.findByIdentificacion(identificacion);
     }
 
 }

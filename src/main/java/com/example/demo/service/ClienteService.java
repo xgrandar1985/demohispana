@@ -20,7 +20,7 @@ public class ClienteService {
         return existingCliente.orElseGet(() -> clienteRepository.save(cliente));
     }
 
-    public Optional<ClienteConVehiculosYModeloYMarcaDTO> findClienteConVehiculosYModeloYMarcaDTO(String identificacion) {
+    public Optional<ClienteConVehiculosYModeloYMarcaDTO> findByIdentificacion(String identificacion) {
         return clienteRepository.findByIdentificacion(identificacion)
                 .map(cliente -> {
                     List<ClienteConVehiculosYModeloYMarcaDTO.VehiculoConModeloConMarcaDTO> vehiculos = cliente.getVehiculos().stream()
