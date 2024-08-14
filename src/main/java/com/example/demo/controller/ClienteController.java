@@ -22,17 +22,21 @@ public class ClienteController {
 
     @PostMapping("/save")
     public ResponseEntity<Cliente> saveCliente(@RequestBody Cliente cliente) {
+
         for (Vehiculo vehiculo : cliente.getVehiculos()) {
             vehiculo.setCliente(cliente);
             vehiculoService.saveVehiculo(vehiculo);
         }
+
         Cliente savedCliente = clienteService.saveOrUpdateCliente(cliente);
         return ResponseEntity.ok(savedCliente);
     }
 
     @GetMapping("/find")
     public Optional<ClienteConVehiculosYModeloYMarcaDTO> findClienteByIdentificacion(@RequestParam String identificacion) {
+
         return clienteService.findByIdentificacion(identificacion);
     }
+
 
 }

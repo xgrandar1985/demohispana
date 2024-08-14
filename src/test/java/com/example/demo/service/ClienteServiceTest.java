@@ -33,6 +33,7 @@ class ClienteServiceTest {
 
     @Test
     void findByIdentificacion() {
+
         String identificacion = "097329745";
         Cliente cliente = new Cliente();
         cliente.setIdentificacion(identificacion);
@@ -77,5 +78,6 @@ class ClienteServiceTest {
         assertEquals("CH432", vehiculoDTO.getChasis());
         assertEquals("Corolla", vehiculoDTO.getModelo());
         assertEquals("Toyota", vehiculoDTO.getMarca());
+
     }
 }
