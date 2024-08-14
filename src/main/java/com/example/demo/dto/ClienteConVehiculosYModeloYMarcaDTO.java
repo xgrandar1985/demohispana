@@ -34,7 +34,7 @@ public class ClienteConVehiculosYModeloYMarcaDTO {
 
 
 
-        public VehiculoConModeloConMarcaDTO(String placa, String chasis, String modelo, String marca) {
+        public VehiculoConModeloConMarcaDTO(String placa, String marca, String modelo, String chasis ) {
             this.placa = placa;
             this.marca = marca;
             this.modelo = modelo;
