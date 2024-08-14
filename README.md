@@ -16,5 +16,3 @@ Este es una demo de una api rest realizado en Spring Boot que gestiona informaci
 - **Pebe utilizar my sql como motor de base de datos al el script de la base de datos esta incluido se llama demohispana.sql**
 - **En el archivo aplication.properties esta el nombre de la base a utilizar mas usuario y contraneña modificar valores de ser necesario**
 - **Para provar el projecto debe acceder a la url: "http://localhost:8080/api/find?identificacion=1111" en postman ya que no tiene swagger**
-
-### Prerrequisitos
