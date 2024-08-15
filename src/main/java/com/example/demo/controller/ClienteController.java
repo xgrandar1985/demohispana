@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.ClienteConVehiculosYModeloYMarcaDTO;
 import com.example.demo.entity.Cliente;
-import com.example.demo.entity.Vehiculo;
 import com.example.demo.service.ClienteService;
 import com.example.demo.service.VehiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +22,16 @@ public class ClienteController {
     @PostMapping("/save")
     public ResponseEntity<Cliente> saveCliente(@RequestBody Cliente cliente) {
 
-        for (Vehiculo vehiculo : cliente.getVehiculos()) {
-            vehiculo.setCliente(cliente);
-            vehiculoService.saveVehiculo(vehiculo);
-        }
+        try {
 
-        Cliente savedCliente = clienteService.saveOrUpdateCliente(cliente);
-        return ResponseEntity.ok(savedCliente);
+            Cliente Clientex = clienteService.saveOrUpdateCliente(cliente);
+            return ResponseEntity.ok(Clientex);
+
+        } catch (Exception ex) {
+
+            return ResponseEntity.status(500).body(null);
+
+        }
     }
 
     @GetMapping("/find")

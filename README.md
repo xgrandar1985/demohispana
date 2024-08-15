@@ -18,3 +18,24 @@ Este es una demo de una api rest realizado en Spring Boot que gestiona informaci
 - **En el archivo aplication.properties esta el nombre de la base a utilizar mas usuario y contraneña modificar valores de ser necesario**
 - **Para provar el projecto debe acceder a la url: "http://localhost:8080/api/find?identificacion=1111" en postman**
 - **Tambien puede accder a probar con swagger usando la siguiente ruta: "http://localhost:8080/swagger-ui/index.html#/cliente-controller/findClienteByIdentificacion" en el navegador**
+- Para probar el metodo saveCliente debera enviar un formato emilar a este json:
+- {
+  "identificacion": "1111",
+  "nombres": "carol linda",
+  "apellidos": "davis rendon",
+  "direccion": "xy",
+  "correo": "carol@outlook.com",
+  "telefono": "3333",
+  "vehiculos": [
+  {
+  "placa": "XZ54",
+  "chasis": "12",
+  "marca": {
+  "descripcion": "Ferrari"
+  },
+  "modelo": {
+  "descripcion": "987"
+  }
+  }
+  ]
+  }
